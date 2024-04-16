@@ -1,12 +1,22 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+import { useState } from 'react';
 import searchIcon from '../../images/icons/search-icon.svg';
 import logo from '../../images/icons/cat-logo.svg';
+import WrapperPopUp from '../wrapper-pop-up/WrapperPopUp';
 import style from './style.module.scss';
 
+
 function Header() {
+  const [openPopUp, setOpenPopUp] = useState<boolean>(false);
+
   return (
     <header className={style.header}>
       <div className={style.headerActions}>
-        <div className={style.headerBurgerMenu}>
+        <div
+          className={style.headerBurgerMenu}
+          onClick={() => setOpenPopUp(!openPopUp)}
+        >
           <div className={style.burgerMenuButton}>
             <span />
           </div>
@@ -21,6 +31,10 @@ function Header() {
           />
         </div>
       </div>
+
+      <WrapperPopUp openPopUp={openPopUp} setOpenPopUp={setOpenPopUp}>
+        <p>Category</p>
+      </WrapperPopUp>
 
       <div className="container">
         <div className={style.headerContent}>
