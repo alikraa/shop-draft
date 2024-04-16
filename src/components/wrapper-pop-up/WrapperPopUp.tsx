@@ -14,9 +14,14 @@ function WrapperPopUp({
   setOpenPopUp,
   children,
 }: WrapperPopUpProps) {
-  
   return (
-    <div className={openPopUp ? `${style.wrapperPopUp} ${style.popUpActive}` : style.wrapperPopUp}>
+    <div
+      className={
+        openPopUp
+          ? `${style.wrapperPopUp} ${style.popUpActive}`
+          : style.wrapperPopUp
+      }
+    >
       <div
         className={style.closeButton}
         onClick={() => setOpenPopUp(!openPopUp)}

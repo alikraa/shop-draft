@@ -1,0 +1,13 @@
+.categoryList {
+  li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    text-align: right;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

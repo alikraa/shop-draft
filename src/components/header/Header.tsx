@@ -4,6 +4,7 @@ import { useState } from 'react';
 import searchIcon from '../../images/icons/search-icon.svg';
 import logo from '../../images/icons/cat-logo.svg';
 import WrapperPopUp from '../wrapper-pop-up/WrapperPopUp';
+import CategoryList from '../category-list/CategoryList';
 import style from './style.module.scss';
 
 
@@ -33,7 +34,7 @@ function Header() {
       </div>
 
       <WrapperPopUp openPopUp={openPopUp} setOpenPopUp={setOpenPopUp}>
-        <p>Category</p>
+        <CategoryList />
       </WrapperPopUp>
 
       <div className="container">
