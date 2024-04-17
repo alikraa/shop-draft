@@ -5,11 +5,12 @@ import searchIcon from '../../images/icons/search-icon.svg';
 import logo from '../../images/icons/cat-logo.svg';
 import WrapperPopUp from '../wrapper-pop-up/WrapperPopUp';
 import CategoryList from '../category-list/CategoryList';
+import ModalForm from '../modal-form/ModalForm';
 import style from './style.module.scss';
-
 
 function Header() {
   const [openPopUp, setOpenPopUp] = useState<boolean>(false);
+  const [openModalForm, setOpenModalForm] = useState<boolean>(false);
 
   return (
     <header className={style.header}>
@@ -23,7 +24,10 @@ function Header() {
           </div>
         </div>
 
-        <div className={style.search}>
+        <div
+          className={style.search}
+          onClick={() => setOpenModalForm(!openModalForm)}
+        >
           <img
             src={searchIcon}
             title="Найти"
@@ -32,6 +36,11 @@ function Header() {
           />
         </div>
       </div>
+
+      <ModalForm
+        openModalForm={openModalForm}
+        setOpenModalForm={setOpenModalForm}
+      />
 
       <WrapperPopUp openPopUp={openPopUp} setOpenPopUp={setOpenPopUp}>
         <CategoryList />

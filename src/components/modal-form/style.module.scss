@@ -1,0 +1,113 @@
+.modalForm {
+  width: 100%;
+  height: 30vh;
+  padding: 25px;
+  background-color: #fff;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  transform: translateY(-100%);
+  transition: all 0.5s ease-out;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modalFormContent {
+    width: 1220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .form {
+      width: 1150px;
+      padding: 15px;
+      border: 2px solid #000;
+      border-radius: 30px;
+
+      display: flex;
+      align-items: center;
+
+      .formInput {
+        width: 84%;
+        padding: 15px;
+        font-size: 25px;
+        color: #000;
+        background-color: transparent;
+        outline: transparent;
+        border: none;
+
+        &::placeholder {
+          color: #ffffff9d;
+        }
+      }
+
+      .modalFormSearchIcon {
+        margin-left: 15px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .modalFormButton {
+        padding: 15px;
+        margin-left: auto;
+        font-size: 25px;
+        color: #fff;
+        background-color: transparent;
+        outline: transparent;
+        border: none;
+        cursor: pointer;
+
+        background-color: #eb5555;
+        border-radius: 15px;
+
+        &:hover {
+          background-color: #d13131;
+        }
+
+        &:active {
+          background-color: #fff;
+          color: #eb5555;
+        }
+      }
+    }
+
+    .modalFormCloseButton {
+      width: 50px;
+      height: 50px;
+      padding: 15px;
+      cursor: pointer;
+      font-size: 22px;
+
+      border-radius: 15px;
+      border: 2px solid #000;
+      color: #000;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-left: auto;
+
+      &:hover {
+        border: 2px dashed #eb5555;
+        background-color: #eb5555;
+        color: #fff;
+      }
+
+      &:active {
+        border: 2px dashed #000;
+        background-color: transparent;
+        color: #000;
+      }
+    }
+  }
+}
+
+.modalFormActive {
+  transform: translateY(0);
+  transition: all 0.5s ease-out;
+}
