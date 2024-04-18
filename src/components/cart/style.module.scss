@@ -1,4 +1,4 @@
-.cart {  
+.cart {
   .cartButton {
     border-radius: 15px;
     border: 2px solid #000;
@@ -45,5 +45,60 @@
     position: absolute;
     bottom: -15px;
     right: -15px;
+  }
+
+  .cartOrder {
+    background-color: #fff;
+    font-size: 25px;
+    margin-bottom: 30px;
+    padding: 25px;
+  }
+
+  .cartForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    color: #fff;
+    font-size: 25px;
+
+    input {
+      margin-top: 15px;
+    }
+
+    input,
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 22px;
+    }
+  }
+
+  .cartItem {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 25px;
+    padding: 25px;
+
+    img {
+      width: 80px;
+      height: 80px;
+    }
+    input {
+      width: 60px;
+      height: 50px;
+      font-size: 22px;
+      padding: 10px;
+
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        appearance: none;
+      }
+    }
+  }
+
+  .totalSum {
+    text-align: right;
   }
 }
