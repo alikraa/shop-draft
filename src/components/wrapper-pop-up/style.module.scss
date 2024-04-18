@@ -1,48 +1,66 @@
 .wrapperPopUp {
-  width: 20vw;
   height: 100vh;
   padding: 25px;
 
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
   z-index: 15;
 
   background-color: #3e5761;
 
+  .closeButton {
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    cursor: pointer;
+    font-size: 22px;
+
+    border-radius: 15px;
+    border: 2px solid #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 0 30px auto;
+
+    &:hover {
+      border: 2px dashed #eb5555;
+      background-color: #eb5555;
+    }
+
+    &:active {
+      color: #fff;
+      border: 2px dashed #fff;
+      background-color: transparent;
+    }
+  }
+}
+
+.burgerMenu {
+  width: 20vw;
+  left: 0;
   transform: translate(-100%);
   transition: all 0.5s ease-out;
 }
 
-.popUpActive {
+.burgerMenuActive {
+  width: 20vw;
+  left: 0;
   transform: translate(0);
   transition: all 0.5s ease-out;
 }
 
-.closeButton {
-  width: 50px;
-  height: 50px;
-  padding: 15px;
-  cursor: pointer;
-  font-size: 22px;
-
-  border-radius: 15px;
-  border: 2px solid #fff;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: 0 0 30px auto;
+.cart {
+  width: 35vw;
+  right: 0;
+  transform: translate(100%);
+  transition: all 0.5s ease-out;
 }
 
-.closeButton:hover {
-  border: 2px dashed #eb5555;
-  background-color: #eb5555;
-}
-
-.closeButton:active {
-  color: #fff;
-  border: 2px dashed #fff;
-  background-color: transparent;
+.cartActive {
+  width: 35vw;
+  right: 0;
+  transform: translate(0);
+  transition: all 0.5s ease-out;
 }

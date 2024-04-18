@@ -4,24 +4,28 @@ import React from 'react';
 import style from './style.module.scss';
 
 interface WrapperPopUpProps {
+  id?: string;
   openPopUp: boolean;
   setOpenPopUp: (value: boolean) => void;
   children: React.ReactNode;
 }
 
 function WrapperPopUp({
+  id = '',
   openPopUp,
   setOpenPopUp,
   children,
 }: WrapperPopUpProps) {
+  const burgerMenu = openPopUp
+    ? `${style.wrapperPopUp} ${style.burgerMenuActive}`
+    : `${style.wrapperPopUp} ${style.burgerMenu}`;
+
+  const cart = openPopUp
+    ? `${style.wrapperPopUp} ${style.cartActive}`
+    : `${style.wrapperPopUp} ${style.cart}`;
+
   return (
-    <div
-      className={
-        openPopUp
-          ? `${style.wrapperPopUp} ${style.popUpActive}`
-          : style.wrapperPopUp
-      }
-    >
+    <div className={id === 'cart' ? cart : burgerMenu}>
       <div
         className={style.closeButton}
         onClick={() => setOpenPopUp(!openPopUp)}
