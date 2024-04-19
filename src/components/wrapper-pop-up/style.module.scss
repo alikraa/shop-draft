@@ -7,6 +7,20 @@
   z-index: 15;
 
   background-color: #3e5761;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 15px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #849ea8;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #132329;
+    border-radius: 15px;
+  }
 
   .closeButton {
     width: 50px;
@@ -53,14 +67,14 @@
 }
 
 .cart {
-  width: 35vw;
+  width: 45vw;
   right: 0;
   transform: translate(100%);
   transition: all 0.5s ease-out;
 }
 
 .cartActive {
-  width: 35vw;
+  width: 45vw;
   right: 0;
   transform: translate(0);
   transition: all 0.5s ease-out;

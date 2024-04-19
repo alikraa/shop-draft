@@ -12,19 +12,19 @@ function Cart() {
   return (
     <div className={style.cart}>
       <WrapperPopUp id="cart" openPopUp={openPopUp} setOpenPopUp={setOpenPopUp}>
-          <div className={style.cartOrder}>
-            <h3>Ваш заказ</h3>
-            <hr />
+        <div className={style.cartOrder}>
+          <h3>Ваш заказ</h3>
+          <hr />
 
-            <CartItem />
-            <CartItem />
-            <CartItem />
+          <CartItem />
+          <CartItem />
+          <CartItem />
 
-            <hr />
-            <p className={style.totalSum}>Сумма: 999 р.</p>
-          </div>
+          <hr />
+          <p className={style.totalSum}>Сумма: 999 р.</p>
+        </div>
 
-          <CartForm />
+        <CartForm />
       </WrapperPopUp>
 
       <div
