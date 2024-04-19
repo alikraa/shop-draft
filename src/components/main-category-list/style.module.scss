@@ -1,0 +1,43 @@
+.mainCategoriesList {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 70px;
+
+  li {
+    list-style-type: none;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  .categoryItem {
+    figcaption {
+      font-size: 25px;
+      font-weight: 600;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
+    }
+
+    .imgWrapper {
+      border-radius: 30px;
+      overflow: hidden;
+
+      img {
+        width: 250px;
+        height: 250px;
+        border-radius: 30px;
+        transition: 1s;
+
+        &:hover {
+          border-radius: 30px;
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import searchIcon from '../../images/icons/search-icon.svg';
 import logo from '../../images/icons/cat-logo.svg';
 import WrapperPopUp from '../wrapper-pop-up/WrapperPopUp';
-import CategoryList from '../category-list/CategoryList';
+import SidebarCategoryList from '../sidebar-category-list/SidebarCategoryList';
 import ModalForm from '../modal-form/ModalForm';
 import style from './style.module.scss';
 
@@ -43,7 +43,7 @@ function Header() {
       />
 
       <WrapperPopUp openPopUp={openPopUp} setOpenPopUp={setOpenPopUp}>
-        <CategoryList />
+        <SidebarCategoryList />
       </WrapperPopUp>
 
       <div className="container">

@@ -1,8 +1,8 @@
 import style from './style.module.scss';
 
-function CategoryList() {
+function SidebarCategoryList() {
   return (
-    <ul className={style.categoryList}>
+    <ul className={style.sidebarCategoryList}>
       <li>Новинки</li>
       <li>Обувь</li>
       <li>Одежда</li>
@@ -11,4 +11,4 @@ function CategoryList() {
   );
 }
 
-export default CategoryList;
+export default SidebarCategoryList;
