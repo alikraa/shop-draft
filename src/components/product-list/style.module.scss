@@ -1,0 +1,31 @@
+.productList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+
+  background-color: pink;
+
+  .product {
+    width: 250px;
+    height: 250px;
+    padding: 15px;
+
+    background-color: #eb5555;
+    text-align: center;
+
+    figure {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    figcaption {
+      text-align: left;
+    }
+
+    .productImg {
+      width: 150px;
+      height: 150px;
+    }
+  }
+}
