@@ -1,0 +1,35 @@
+.noUi-connect {
+    background-color: purple;
+    /* height: 2px; */
+}
+
+.noUi-target {
+    background: aqua;
+    border: none;
+    border-radius: 100px;
+    box-shadow: none;
+    height: 3px;
+}
+
+.noUi-handle::before,
+.noUi-handle::after {
+    display: none;
+}
+
+.noUi-handle {
+    box-shadow: none;
+    border-radius: 100%;
+    background-color: #fff;
+}
+
+.noUi-horizontal .noUi-handle-upper {
+    right: 0;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 22px;
+    height: 22px;
+    border: 3px solid purple;
+    background-color: aqua;
+    top: -10px;
+}
