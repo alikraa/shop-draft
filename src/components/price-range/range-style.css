@@ -1,14 +1,18 @@
 .noUi-connect {
     background-color: purple;
-    /* height: 2px; */
+    height: 2px;
+
+    width: 100%;
 }
 
 .noUi-target {
-    background: aqua;
+    background: grey;
     border: none;
     border-radius: 100px;
     box-shadow: none;
-    height: 3px;
+    height: 15px;
+
+    width: 100%;
 }
 
 .noUi-handle::before,
@@ -30,6 +34,10 @@
     width: 22px;
     height: 22px;
     border: 3px solid purple;
-    background-color: aqua;
+    background-color: grey;
     top: -10px;
 }
+
+/* .noUi-origin .noUi-handle-lower{
+    transform: translate(-100%, 0px);
+} */

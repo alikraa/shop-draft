@@ -1,9 +1,14 @@
-import Nouislider from 'nouislider-react';
-import 'nouislider/distribute/nouislider.css';
+import { useState } from 'react';
+import Nouislider from "nouislider-react";
+import "nouislider/dist/nouislider.css";
+
 import style from './style.module.scss';
 import './range-style.css';
 
 function PriceRange() {
+  const [minValue, setMinValue] = useState(500);
+  const [maxValue, setMaxValue] = useState(999999);
+
   return (
     <div className={style.range}>
       <h2>Цена</h2>
@@ -17,6 +22,8 @@ function PriceRange() {
             max="999999"
             placeholder="500"
             id="input-0"
+            value={minValue}
+            onChange={(event) => setMinValue(Number(event.target.value))}
           />
           <span>P</span>
         </label>
@@ -29,16 +36,26 @@ function PriceRange() {
             max="999999"
             placeholder="999999"
             id="input-1"
+            value={maxValue}
+            onChange={(event) => setMaxValue(Number(event.target.value))}
           />
           <span>P</span>
         </label>
       </div>
       <Nouislider
         range={{ min: 500, max: 999999 }}
-        start={[500, 999999]}
+        start={[minValue, maxValue]}
         connect
         step={1}
+        onUpdate={(values, handle) => {
+          if (handle) {
+            setMaxValue(Math.round(values[1]));
+          } else {
+            setMinValue(Math.round(values[0]));
+          }
+        }}
       />
+      <input type="range" min="500" max="999999"/>
     </div>
   );
 }

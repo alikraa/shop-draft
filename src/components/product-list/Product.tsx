@@ -1,14 +1,20 @@
 import sneakers from '../../images/sneakers.jpg';
 import style from './style.module.scss';
 
-function Product() {
+interface ProductProps {
+  productName: string;
+  productImage: string;
+}
+
+function Product({ productName, productImage }: ProductProps) {
   return (
     <div className={style.product}>
       <figure>
-        <img src={sneakers} alt="Product" className={style.productImg} />
-        <figcaption>Jordan 11 Retro DMP &#34;Gratitude&#34; (2023)</figcaption>
+        <img src={productImage} alt="Product" className={style.productImg} />
+        <figcaption>{productName}</figcaption>
       </figure>
       <h3>$199</h3>
+      <button>Добавить в корзину</button>
     </div>
   );
 }

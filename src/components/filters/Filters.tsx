@@ -1,4 +1,4 @@
-import PriceRange from '../price-range/PriceRange';
+// import PriceRange from '../price-range/PriceRange';
 import style from './style.module.scss';
 
 function Filters() {
@@ -37,7 +37,7 @@ function Filters() {
           Converse
         </label>
       </div>
-      <PriceRange />
+      {/* <PriceRange /> */}
     </div>
   );
 }
