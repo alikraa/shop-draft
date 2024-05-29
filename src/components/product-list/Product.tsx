@@ -1,20 +1,26 @@
-import sneakers from '../../images/sneakers.jpg';
+// import sneakers from '../../images/sneakers.jpg';
+import { Item } from '../../ts/types';
 import style from './style.module.scss';
 
-interface ProductProps {
-  productName: string;
-  productImage: string;
+interface ProductProps extends Item {
+  onClickButton: () => void;
 }
 
-function Product({ productName, productImage }: ProductProps) {
+function Product({ data, onClickButton }: ProductProps) {
   return (
     <div className={style.product}>
       <figure>
-        <img src={productImage} alt="Product" className={style.productImg} />
-        <figcaption>{productName}</figcaption>
+        <img
+          src={data.detail.logoUrl}
+          alt="Product"
+          className={style.productImg}
+        />
+        <figcaption>{data.detail.title}</figcaption>
       </figure>
-      <h3>$199</h3>
-      <button>Добавить в корзину</button>
+      <h3>${data.price.item.price / 100}</h3>
+      <button type="button" onClick={onClickButton}>
+        Добавить в корзину
+      </button>
     </div>
   );
 }
