@@ -1,14 +1,15 @@
-import sneakers from '../../images/sneakers.jpg';
+import { Item } from '../../ts/types';
+// import sneakers from '../../images/sneakers.jpg';
 import upIcon from '../../images/icons/up-icon.svg';
 import downIcon from '../../images/icons/down-icon.svg';
 import style from './style.module.scss';
 
-function CartItem() {
+function CartItem({ data }: Item) {
   return (
     <div className={style.cartItem}>
-      <img src={sneakers} alt="Sneakers" />
+      <img src={data.detail.logoUrl} alt="Sneakers" />
       <div className={style.itemDescription}>
-        <p>Name</p>
+        <p>{data.detail.title}</p>
         <p>Details</p>
       </div>
       <div className={style.counter}>
@@ -22,7 +23,7 @@ function CartItem() {
           </button>
         </div>
       </div>
-      <p>1 500 p.</p>
+      <p>${data.price.item.price / 100}</p>
       <button type="button" className={style.deleteButton}>
         X
       </button>
