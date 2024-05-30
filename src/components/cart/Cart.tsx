@@ -4,17 +4,16 @@ import { useState } from 'react';
 import WrapperPopUp from '../wrapper-pop-up/WrapperPopUp';
 import CartForm from './CartForm';
 import CartItem from './CartItem';
-import { arrayOfProducts } from '../../ts/view';
+import { useAppSelector } from '../../redux/hooks';
+import { RootState } from '../../redux/store';
 import cartIcon from '../../images/icons/cart-icon.svg';
 import style from './style.module.scss';
 
 function Cart() {
-  const [openPopUp, setOpenPopUp] = useState<boolean>(false);
-
-  const totalSum = arrayOfProducts.reduce(
-    (value, currentValue) => value + currentValue.data.price.item.price,
-    0
+  const { products, totalSum, numberOfProducts } = useAppSelector(
+    (state: RootState) => state.cartData
   );
+  const [openPopUp, setOpenPopUp] = useState<boolean>(false);
 
   return (
     <div className={style.cart}>
@@ -23,7 +22,7 @@ function Cart() {
           <h3>Ваш заказ</h3>
           <hr />
 
-          {arrayOfProducts.map((item) => (
+          {products.map((item) => (
             <CartItem key={item.data.detail.spuId} data={item.data} />
           ))}
           <hr />
@@ -43,9 +42,7 @@ function Cart() {
           alt="Cart"
           title="Корзина"
         />
-        <span className={style.cartNumberProducts}>
-          {arrayOfProducts.length}
-        </span>
+        <span className={style.cartNumberProducts}>{numberOfProducts}</span>
       </div>
     </div>
   );
