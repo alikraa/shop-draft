@@ -23,7 +23,11 @@ function Cart() {
           <hr />
 
           {products.map((item) => (
-            <CartItem key={item.data.detail.spuId} data={item.data} />
+            <CartItem
+              key={item.data.detail.spuId}
+              data={item.data}
+              quantity={item.quantity}
+            />
           ))}
           <hr />
           <p className={style.totalSum}>Сумма: ${totalSum / 100}</p>

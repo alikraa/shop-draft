@@ -14,4 +14,13 @@ interface Item {
   };
 }
 
-export type { Item };
+interface Product extends Item {
+  quantity: number;
+}
+
+interface CounterData {
+  spuId: number;
+  value: number;
+}
+
+export type { Item, Product, CounterData };

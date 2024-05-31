@@ -1,26 +1,19 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { useAppDispatch } from '../../redux/hooks';
-import { removeProductFromCart } from '../../redux/cart-slice';
-import { Item } from '../../ts/types';
+import {
+  removeProductFromCart,
+  increase,
+  decrease,
+  saveCounterValue,
+} from '../../redux/cart-slice';
+import { CounterData, Product } from '../../ts/types';
 // import sneakers from '../../images/sneakers.jpg';
 import upIcon from '../../images/icons/up-icon.svg';
 import downIcon from '../../images/icons/down-icon.svg';
 import style from './style.module.scss';
 
-function CartItem({ data }: Item) {
+function CartItem({ data, quantity }: Product) {
   const dispatch = useAppDispatch();
-
-  const [value, setValue] = useState<number>(1);
-
-  const increase = () => {
-    setValue((prev) => prev + 1);
-  };
-
-  const decrease = () => {
-    if (value === 1) return;
-
-    setValue((prev) => prev - 1);
-  };
 
   return (
     <div className={style.cartItem}>
@@ -32,26 +25,37 @@ function CartItem({ data }: Item) {
       <div className={style.counter}>
         <input
           type="number"
-          min={value}
-          value={value}
+          min={1}
+          value={quantity}
           onChange={(event) => {
+            const counterData: CounterData = {
+              spuId: data.detail.spuId,
+              value: Number(event.target.value),
+            };
+
             if (Number(event.target.value)) {
-              setValue(Number(event.target.value));
+              dispatch(saveCounterValue(counterData));
             } else {
-              setValue(1);
+              dispatch(saveCounterValue({ ...counterData, value: 1 }));
             }
           }}
         />
         <div className={style.countControls}>
-          <button type="button" onClick={increase}>
+          <button
+            type="button"
+            onClick={() => dispatch(increase(data.detail.spuId))}
+          >
             <img src={upIcon} alt="Increase" />
           </button>
-          <button type="button" onClick={decrease}>
+          <button
+            type="button"
+            onClick={() => dispatch(decrease(data.detail.spuId))}
+          >
             <img src={downIcon} alt="Decrease" />
           </button>
         </div>
       </div>
-      <p>${(data.price.item.price / 100) * value}</p>
+      <p>${(data.price.item.price / 100) * quantity}</p>
       <button
         type="button"
         className={style.deleteButton}
