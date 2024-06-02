@@ -13,6 +13,21 @@ const initialState: InitialState = {
   numberOfProducts: 0,
 };
 
+const calcTotalSum = (state: InitialState) => {
+  state.totalSum = state.products.reduce(
+    (value, currentValue) =>
+      value + currentValue.data.price.item.price * currentValue.quantity,
+    0
+  );
+};
+
+const calcNumberOfProducts = (state: InitialState) => {
+  state.numberOfProducts = state.products.reduce(
+    (value, currentValue) => value + currentValue.quantity,
+    0
+  );
+};
+
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
@@ -36,16 +51,8 @@ const cartSlice = createSlice({
         state.products.push(product);
       }
 
-      state.totalSum = state.products.reduce(
-        (value, currentValue) =>
-          value + currentValue.data.price.item.price * currentValue.quantity,
-        0
-      );
-
-      state.numberOfProducts = state.products.reduce(
-        (value, currentValue) => value + currentValue.quantity,
-        0
-      );
+      calcTotalSum(state);
+      calcNumberOfProducts(state);
     },
 
     removeProductFromCart(state, action: PayloadAction<number>) {
@@ -53,16 +60,8 @@ const cartSlice = createSlice({
         (item) => item.data.detail.spuId !== action.payload
       );
 
-      state.totalSum = state.products.reduce(
-        (value, currentValue) =>
-          value + currentValue.data.price.item.price * currentValue.quantity,
-        0
-      );
-
-      state.numberOfProducts = state.products.reduce(
-        (value, currentValue) => value + currentValue.quantity,
-        0
-      );
+      calcTotalSum(state);
+      calcNumberOfProducts(state);
     },
 
     increase(state, action: PayloadAction<number>) {
@@ -75,16 +74,8 @@ const cartSlice = createSlice({
           : item
       );
 
-      state.totalSum = state.products.reduce(
-        (value, currentValue) =>
-          value + currentValue.data.price.item.price * currentValue.quantity,
-        0
-      );
-
-      state.numberOfProducts = state.products.reduce(
-        (value, currentValue) => value + currentValue.quantity,
-        0
-      );
+      calcTotalSum(state);
+      calcNumberOfProducts(state);
     },
 
     decrease(state, action: PayloadAction<number>) {
@@ -101,16 +92,8 @@ const cartSlice = createSlice({
         }
       });
 
-      state.totalSum = state.products.reduce(
-        (value, currentValue) =>
-          value + currentValue.data.price.item.price * currentValue.quantity,
-        0
-      );
-
-      state.numberOfProducts = state.products.reduce(
-        (value, currentValue) => value + currentValue.quantity,
-        0
-      );
+      calcTotalSum(state);
+      calcNumberOfProducts(state);
     },
 
     saveCounterValue(state, action: PayloadAction<CounterData>) {
@@ -123,16 +106,8 @@ const cartSlice = createSlice({
           : item
       );
 
-      state.totalSum = state.products.reduce(
-        (value, currentValue) =>
-          value + currentValue.data.price.item.price * currentValue.quantity,
-        0
-      );
-
-      state.numberOfProducts = state.products.reduce(
-        (value, currentValue) => value + currentValue.quantity,
-        0
-      );
+      calcTotalSum(state);
+      calcNumberOfProducts(state);
     },
   },
 });
