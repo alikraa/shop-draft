@@ -37,11 +37,15 @@ const cartSlice = createSlice({
       }
 
       state.totalSum = state.products.reduce(
-        (value, currentValue) => value + currentValue.data.price.item.price,
+        (value, currentValue) =>
+          value + currentValue.data.price.item.price * currentValue.quantity,
         0
       );
 
-      state.numberOfProducts = state.products.length;
+      state.numberOfProducts = state.products.reduce(
+        (value, currentValue) => value + currentValue.quantity,
+        0
+      );
     },
 
     removeProductFromCart(state, action: PayloadAction<number>) {
@@ -50,11 +54,15 @@ const cartSlice = createSlice({
       );
 
       state.totalSum = state.products.reduce(
-        (value, currentValue) => value + currentValue.data.price.item.price,
+        (value, currentValue) =>
+          value + currentValue.data.price.item.price * currentValue.quantity,
         0
       );
 
-      state.numberOfProducts = state.products.length;
+      state.numberOfProducts = state.products.reduce(
+        (value, currentValue) => value + currentValue.quantity,
+        0
+      );
     },
 
     increase(state, action: PayloadAction<number>) {
@@ -65,6 +73,17 @@ const cartSlice = createSlice({
               quantity: item.quantity + 1,
             }
           : item
+      );
+
+      state.totalSum = state.products.reduce(
+        (value, currentValue) =>
+          value + currentValue.data.price.item.price * currentValue.quantity,
+        0
+      );
+
+      state.numberOfProducts = state.products.reduce(
+        (value, currentValue) => value + currentValue.quantity,
+        0
       );
     },
 
@@ -81,6 +100,17 @@ const cartSlice = createSlice({
           return item;
         }
       });
+
+      state.totalSum = state.products.reduce(
+        (value, currentValue) =>
+          value + currentValue.data.price.item.price * currentValue.quantity,
+        0
+      );
+
+      state.numberOfProducts = state.products.reduce(
+        (value, currentValue) => value + currentValue.quantity,
+        0
+      );
     },
 
     saveCounterValue(state, action: PayloadAction<CounterData>) {
@@ -91,6 +121,17 @@ const cartSlice = createSlice({
               quantity: action.payload.value,
             }
           : item
+      );
+
+      state.totalSum = state.products.reduce(
+        (value, currentValue) =>
+          value + currentValue.data.price.item.price * currentValue.quantity,
+        0
+      );
+
+      state.numberOfProducts = state.products.reduce(
+        (value, currentValue) => value + currentValue.quantity,
+        0
       );
     },
   },
