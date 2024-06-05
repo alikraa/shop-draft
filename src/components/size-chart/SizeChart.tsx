@@ -1,18 +1,19 @@
+import { nanoid } from 'nanoid';
 import style from './style.module.scss';
 
-function SizeChart() {
+interface SizeChartProps {
+  sizes: string;
+}
+
+function SizeChart({ sizes }: SizeChartProps) {
+  const updatedSizes = sizes
+    .split(',')
+    .map((item) => ({ id: nanoid(), value: item }));
   return (
     <div className={style.sizeChart}>
-      <span>35</span>
-      <span>36</span>
-      <span>37</span>
-      <span>38</span>
-      <span>39</span>
-      <span>40</span>
-      <span>41</span>
-      <span>42</span>
-      <span>43</span>
-      <span>44</span>
+      {updatedSizes.map((item) => (
+        <span key={item.id}>{item.value}</span>
+      ))}
     </div>
   );
 }

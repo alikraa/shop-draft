@@ -11,7 +11,20 @@ interface Item {
       logoUrl: string;
       title: string;
     };
+
+    sizeDto: {
+      sizeInfo: {
+        sizeTemplate: {
+          list: SizeListItem[];
+        };
+      };
+    };
   };
+}
+
+interface SizeListItem {
+  sizeKey: string;
+  sizeValue: string;
 }
 
 interface Product extends Item {

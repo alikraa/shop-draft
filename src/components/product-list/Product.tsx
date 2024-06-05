@@ -27,7 +27,9 @@ function Product({ data, onClickButton }: ProductProps) {
         <>
           <span>✔</span>
           <WrapperModalWindow>
-            <SizeChart />
+            <SizeChart
+              sizes={data.sizeDto.sizeInfo.sizeTemplate.list[0].sizeValue}
+            />
           </WrapperModalWindow>
         </>
       ) : (
