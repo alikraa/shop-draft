@@ -23,26 +23,24 @@ function Product({ data, onClickButton }: ProductProps) {
         <figcaption>{data.detail.title}</figcaption>
       </figure>
       <h3>${data.price.item.price / 100}</h3>
-      {addToCart ? (
-        <>
-          <span>✔</span>
-          <WrapperModalWindow>
-            <SizeChart
-              sizes={data.sizeDto.sizeInfo.sizeTemplate.list[0].sizeValue}
-            />
-          </WrapperModalWindow>
-        </>
-      ) : (
-        <button
-          type="button"
-          onClick={() => {
-            setAddToCart(!addToCart);
-            onClickButton();
-          }}
-        >
-          Добавить в корзину
-        </button>
+      {addToCart && (
+        <WrapperModalWindow>
+          <SizeChart
+            sizes={data.sizeDto.sizeInfo.sizeTemplate.list[0].sizeValue}
+            addToCart={addToCart}
+            setAddToCart={setAddToCart}
+          />
+        </WrapperModalWindow>
       )}
+      <button
+        type="button"
+        onClick={() => {
+          setAddToCart(!addToCart);
+          // onClickButton();
+        }}
+      >
+        Добавить в корзину
+      </button>
     </div>
   );
 }
