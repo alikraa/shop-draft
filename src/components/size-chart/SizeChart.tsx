@@ -22,15 +22,15 @@ function SizeChart({ item, sizes, addToCart, setAddToCart }: SizeChartProps) {
 
   return (
     <div className={style.sizeChart}>
-      {updatedSizes.map((elem) => (
+      {updatedSizes.map((size) => (
         <span
-          key={elem.id}
+          key={size.id}
           onClick={() => {
             setAddToCart(!addToCart);
-            dispatch(addProductToCart(item));
+            dispatch(addProductToCart({ data: item.data, size: size.value }));
           }}
         >
-          {elem.value}
+          {size.value}
         </span>
       ))}
     </div>

@@ -27,6 +27,7 @@ function Cart() {
               key={item.data.detail.spuId}
               data={item.data}
               quantity={item.quantity}
+              size={item.size}
             />
           ))}
           <hr />

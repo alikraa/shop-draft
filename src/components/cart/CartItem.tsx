@@ -12,7 +12,7 @@ import upIcon from '../../images/icons/up-icon.svg';
 import downIcon from '../../images/icons/down-icon.svg';
 import style from './style.module.scss';
 
-function CartItem({ data, quantity }: Product) {
+function CartItem({ data, quantity, size }: Product) {
   const dispatch = useAppDispatch();
 
   return (
@@ -20,7 +20,7 @@ function CartItem({ data, quantity }: Product) {
       <img src={data.detail.logoUrl} alt="Sneakers" />
       <div className={style.itemDescription}>
         <p>{data.detail.title}</p>
-        <p>Details</p>
+        <p>{size}</p>
       </div>
       <div className={style.counter}>
         <input

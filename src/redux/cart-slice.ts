@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { CounterData, Item, Product } from '../ts/types';
+import { CartItem, CounterData, Product } from '../ts/types';
 
 interface InitialState {
   products: Product[];
@@ -32,12 +32,16 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addProductToCart(state, action: PayloadAction<Item>) {
+    addProductToCart(state, action: PayloadAction<CartItem>) {
       const isProduct = state.products.find(
         (item) => item.data.detail.spuId === action.payload.data.detail.spuId
       );
 
-      if (isProduct) {
+      const isSize = state.products.find(
+        (item) => item.size === action.payload.size
+      );
+
+      if (isProduct && isSize) {
         state.products = state.products.map((item) =>
           item.data.detail.spuId === action.payload.data.detail.spuId
             ? { ...item, quantity: item.quantity + 1 }
@@ -47,6 +51,7 @@ const cartSlice = createSlice({
         const product = {
           ...action.payload,
           quantity: 1,
+          size: action.payload.size,
         };
         state.products.push(product);
       }

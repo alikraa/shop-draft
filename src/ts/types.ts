@@ -29,6 +29,11 @@ interface SizeListItem {
 
 interface Product extends Item {
   quantity: number;
+  size: string;
+}
+
+interface CartItem extends Item {
+  size: string;
 }
 
 interface CounterData {
@@ -36,4 +41,4 @@ interface CounterData {
   value: number;
 }
 
-export type { Item, Product, CounterData };
+export type { Item, Product, CounterData, CartItem };
