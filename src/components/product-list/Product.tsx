@@ -5,11 +5,7 @@ import SizeChart from '../size-chart/SizeChart';
 import WrapperModalWindow from '../wrapper-modal-window/WrapperModalWindow';
 import style from './style.module.scss';
 
-interface ProductProps extends Item {
-  onClickButton: () => void;
-}
-
-function Product({ data, onClickButton }: ProductProps) {
+function Product({ data }: Item) {
   const [addToCart, setAddToCart] = useState<boolean>(false);
 
   return (
@@ -26,19 +22,14 @@ function Product({ data, onClickButton }: ProductProps) {
       {addToCart && (
         <WrapperModalWindow>
           <SizeChart
+            item={{ data }}
             sizes={data.sizeDto.sizeInfo.sizeTemplate.list[0].sizeValue}
             addToCart={addToCart}
             setAddToCart={setAddToCart}
           />
         </WrapperModalWindow>
       )}
-      <button
-        type="button"
-        onClick={() => {
-          setAddToCart(!addToCart);
-          // onClickButton();
-        }}
-      >
+      <button type="button" onClick={() => setAddToCart(!addToCart)}>
         Добавить в корзину
       </button>
     </div>
