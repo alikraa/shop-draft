@@ -12,6 +12,10 @@ interface Item {
       title: string;
     };
 
+    brandRootInfo: {
+      brandItemList: BrandItemList[];
+    };
+
     sizeDto: {
       sizeInfo: {
         sizeTemplate: {
@@ -25,6 +29,10 @@ interface Item {
 interface SizeListItem {
   sizeKey: string;
   sizeValue: string;
+}
+
+interface BrandItemList {
+  brandName: string;
 }
 
 interface Product extends Item {
