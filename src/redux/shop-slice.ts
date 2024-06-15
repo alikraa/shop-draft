@@ -5,13 +5,13 @@ import database from '../database.json';
 interface InitialState {
   productList: Item[];
   searchValue: string;
-  currentBrand: string;
+  currentBrand: string[];
 }
 
 const initialState: InitialState = {
   productList: database,
   searchValue: '',
-  currentBrand: '',
+  currentBrand: [],
 };
 
 const shopSlice = createSlice({
@@ -23,22 +23,37 @@ const shopSlice = createSlice({
     },
 
     setCurrentBrand(state, action: PayloadAction<string>) {
-      state.currentBrand = action.payload;
+      if (state.currentBrand.includes(action.payload)) {
+        state.currentBrand = state.currentBrand.filter(
+          (item) => item !== action.payload
+        );
+      } else {
+        state.currentBrand.push(action.payload);
+      }
     },
 
-    sortingByBrand(state) {
-      state.productList = state.currentBrand
-        ? state.productList.filter(
-            (item) =>
-              item.data.brandRootInfo.brandItemList[0].brandName ===
-              state.currentBrand
+    sortingByBrands(state) {
+      const filteredList: Item[] = [];
+
+      if (state.currentBrand.length > 0) {
+        state.currentBrand.forEach((brand) =>
+          filteredList.push(
+            ...database.filter(
+              (item) =>
+                item.data.brandRootInfo.brandItemList[0].brandName === brand
+            )
           )
-        : database;
+        );
+
+        state.productList = filteredList;
+      } else {
+        state.productList = database;
+      }
     },
   },
 });
 
-export const { setSearchValue, setCurrentBrand, sortingByBrand } =
+export const { setSearchValue, setCurrentBrand, sortingByBrands } =
   shopSlice.actions;
 
 export default shopSlice.reducer;
