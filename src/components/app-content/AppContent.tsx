@@ -4,11 +4,11 @@ import WhyDidYouChooseUs from '../why-did-you-choose-us/WhyDidYouChooseUs';
 
 function AppContent() {
   return (
-    <>
-      <MainCategoryList />
-      <WhyDidYouChooseUs />
+    <div className="container">
+      {/* <MainCategoryList /> */}
+      {/* <WhyDidYouChooseUs /> */}
       <MainContent />
-    </>
+    </div>
   );
 }
 

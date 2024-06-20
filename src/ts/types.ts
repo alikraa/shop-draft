@@ -49,4 +49,10 @@ interface CounterData {
   value: number;
 }
 
-export type { Item, Product, CounterData, CartItem };
+interface CategoryData {
+  id: number;
+  title: string;
+  status: boolean;
+}
+
+export type { Item, Product, CounterData, CartItem, CategoryData };

@@ -1,10 +1,17 @@
 .filters {
+  width: 15vw;
+
   .brands {
     display: flex;
     flex-direction: column;
     padding: 25px;
 
-    background-color: orange;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 20px;
+
+    h2 {
+      margin-bottom: 20px;
+    }
 
     label {
       cursor: pointer;
@@ -26,6 +33,7 @@
         border-radius: 5px;
         vertical-align: sub;
         margin-right: 7px;
+        border: 1px solid rgb(173, 173, 173);
 
         position: relative;
 
@@ -38,8 +46,8 @@
           background-color: #3e5761;
 
           position: absolute;
-          top: 20%;
-          left: 20%;
+          top: 18%;
+          left: 18%;
           opacity: 0;
         }
       }

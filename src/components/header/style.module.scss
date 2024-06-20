@@ -3,152 +3,103 @@
   background-color: rgba(0, 44, 62, 1);
   color: #fff;
   padding: 25px;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
 
-  .headerActions {
+  display: flex;
+  justify-content: space-between;
+
+  .headerLogo {
+    width: 25%;
+    margin: 0 50px 0 0;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
 
-    .headerBurgerMenu {
+    img {
       width: 50px;
       height: 50px;
-
-      position: relative;
-
-      padding: 15px;
-      cursor: pointer;
-
-      border-radius: 15px;
-      border: 2px solid #fff;
-
-      &:hover {
-        color: #eb5555;
-        border: 2px dashed #eb5555;
-        background-color: #eb5555;
-      }
-
-      &:active {
-        color: #fff;
-        border: 2px dashed #fff;
-        background-color: transparent;
-      }
-
-      .burgerMenuButton {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        span {
-          position: absolute;
-          top: 22px;
-
-          width: 20px;
-          height: 2px;
-          background-color: #fff;
-        }
-
-        &::before {
-          content: '';
-          position: absolute;
-          top: 15px;
-
-          width: 20px;
-          height: 2px;
-          background-color: #fff;
-        }
-
-        &::after {
-          content: '';
-          position: absolute;
-          bottom: 15px;
-
-          width: 20px;
-          height: 2px;
-          background-color: #fff;
-        }
-      }
+      background-color: #fff;
+      border-radius: 20%;
     }
 
-    .search {
-      width: 50px;
-      height: 50px;
-
-      cursor: pointer;
-
-      border-radius: 15px;
-      border: 2px solid #fff;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        color: #eb5555;
-        border: 2px dashed #eb5555;
-        background-color: #eb5555;
-      }
-
-      &:active {
-        color: #fff;
-        border: 2px dashed #fff;
-        background-color: transparent;
-      }
-
-      .searchIcon {
-        width: 33px;
-        height: 33px;
-      }
+    h1 {
+      display: inline-block;
+      font-size: 22px;
     }
   }
 
   .headerContent {
     width: 100%;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    .menuList {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      list-style-type: none;
+      color: #fff;
+      font-size: 20px;
+
+      li {
+        &:hover {
+          cursor: pointer;
+          color: #eb5555;
+        }
+      }
+
+      .active {
+        color: #eb5555;
+      }
+    }
+  }
+
+  .headerForm {
+    width: 350px;
+    padding: 15px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    background-color: #3e5761;
+
+    display: flex;
     align-items: center;
 
-    h1 {
-      margin-bottom: 30px;
+    .formInput {
+      width: 84%;
+      padding: 10px;
+      font-size: 18px;
+      color: #fff;
+      background-color: transparent;
+      outline: transparent;
+      border: none;
     }
 
-    .headerLogo {
-      width: 70px;
-      height: 70px;
-      background-color: #fff;
-      border-radius: 20%;
-
-      margin-bottom: 30px;
+    .formSearchIcon {
+      width: 25px;
+      height: 25px;
     }
 
-    .headerContentMenu {
-      margin-bottom: 30px;
+    .formButton {
+      padding: 10px;
+      margin-left: auto;
+      font-size: 18px;
+      color: #fff;
+      background-color: transparent;
+      outline: transparent;
+      border: none;
+      cursor: pointer;
 
-      .menuList {
-        display: flex;
-        column-gap: 35px;
-        justify-content: space-between;
-        list-style-type: none;
+      background-color: #eb5555;
+      border-radius: 15px;
 
-        color: #fff;
-        font-size: 25px;
+      &:hover {
+        background-color: #d13131;
+      }
 
-        li {
-          padding: 15px;
-          border: 2px solid #fff;
-          border-radius: 30px;
-
-          &:hover {
-            cursor: pointer;
-            color: #eb5555;
-            border: 2px dashed #eb5555;
-          }
-
-          &:active {
-            cursor: pointer;
-            color: #fff;
-            border: 2px dashed #fff;
-          }
-        }
+      &:active {
+        background-color: #fff;
+        color: #eb5555;
       }
     }
   }

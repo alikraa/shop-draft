@@ -1,4 +1,4 @@
-import { Item } from './types';
+import { CategoryData, Item } from './types';
 import database from '../database.json';
 
 const arrayOfProducts: Item[] = [];
@@ -11,4 +11,12 @@ const brandsFromDatabase = database.map(
 brandsFromDatabase.forEach((brand) => newSet.add(brand));
 const brands = Array.from(newSet);
 
-export { arrayOfProducts, brands };
+const categoryList: CategoryData[] = [
+  { id: 1, title: 'Обувь', status: true },
+  { id: 2, title: 'Одежда', status: false },
+  { id: 3, title: 'Рюкзаки', status: false },
+  { id: 4, title: 'Часы', status: false },
+  { id: 5, title: 'О нас', status: false },
+];
+
+export { arrayOfProducts, brands, categoryList };
