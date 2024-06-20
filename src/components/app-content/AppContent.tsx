@@ -6,8 +6,8 @@ function AppContent() {
   return (
     <div className="container">
       {/* <MainCategoryList /> */}
-      {/* <WhyDidYouChooseUs /> */}
       <MainContent />
+      <WhyDidYouChooseUs />
     </div>
   );
 }

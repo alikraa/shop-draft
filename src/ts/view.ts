@@ -19,4 +19,6 @@ const categoryList: CategoryData[] = [
   { id: 5, title: 'О нас', status: false },
 ];
 
-export { arrayOfProducts, brands, categoryList };
+const aboutUsId = categoryList[4].id;
+
+export { arrayOfProducts, brands, categoryList, aboutUsId };

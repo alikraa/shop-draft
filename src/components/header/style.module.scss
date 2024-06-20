@@ -43,9 +43,14 @@
       font-size: 20px;
 
       li {
-        &:hover {
-          cursor: pointer;
-          color: #eb5555;
+        a {
+          color: #fff;
+          text-decoration: none;
+
+          &:hover {
+            cursor: pointer;
+            color: #eb5555;
+          }
         }
       }
 
@@ -58,7 +63,7 @@
   .headerForm {
     width: 350px;
     padding: 15px;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     border-radius: 30px;
     background-color: #3e5761;
 

@@ -3,7 +3,7 @@ import style from './style.module.scss';
 
 function WhyDidYouChooseUs() {
   return (
-    <div className={style.whyDidYouChooseUs}>
+    <div className={style.whyDidYouChooseUs} id="reason-list">
       <div className="container">
         <h2>Почему Вы выбрали нас?</h2>
         <p>

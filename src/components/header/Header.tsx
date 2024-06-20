@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState } from 'react';
 import { useAppDispatch } from '../../redux/hooks';
 import { setSearchValue } from '../../redux/shop-slice';
-import { categoryList } from '../../ts/view';
+import { aboutUsId, categoryList } from '../../ts/view';
 import { CategoryData } from '../../ts/types';
 import searchIcon from '../../images/icons/search-icon.svg';
 import logo from '../../images/icons/cat-logo.svg';
@@ -30,20 +31,22 @@ function Header() {
       <div className={style.headerContent}>
         <ul className={style.menuList}>
           {categories.map((item) => (
-            <li
-              key={item.id}
-              className={item.status ? style.active : ''}
-              onClick={() =>
-                setCategories((prev) =>
-                  prev.map((elem) =>
-                    elem.id === item.id
-                      ? { ...elem, status: true }
-                      : { ...elem, status: false }
+            <li key={item.id}>
+              <a
+                className={item.status ? style.active : ''}
+                href={item.id === aboutUsId ? '#reason-list' : '#'}
+                onClick={() =>
+                  setCategories((prev) =>
+                    prev.map((elem) =>
+                      elem.id === item.id
+                        ? { ...elem, status: true }
+                        : { ...elem, status: false }
+                    )
                   )
-                )
-              }
-            >
-              {item.title}
+                }
+              >
+                {item.title}
+              </a>
             </li>
           ))}
         </ul>
