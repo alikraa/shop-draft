@@ -18,7 +18,7 @@ function SizeChart({ item, sizes, addToCart, setAddToCart }: SizeChartProps) {
 
   const updatedSizes = sizes
     .split(',')
-    .map((item) => ({ id: nanoid(), value: item }));
+    .map((elem) => ({ id: nanoid(), value: elem }));
 
   return (
     <div className={style.sizeChart}>

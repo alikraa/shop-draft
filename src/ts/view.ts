@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import { CategoryData, Item } from './types';
 import database from '../database.json';
 
@@ -9,7 +10,10 @@ const brandsFromDatabase = database.map(
 );
 
 brandsFromDatabase.forEach((brand) => newSet.add(brand));
-const brands = Array.from(newSet);
+const brands = Array.from(newSet).map((item) => ({
+  id: nanoid(),
+  title: item,
+}));
 
 const categoryList: CategoryData[] = [
   { id: 1, title: 'Обувь', status: true },

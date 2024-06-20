@@ -92,9 +92,9 @@ const cartSlice = createSlice({
             ...item,
             quantity: item.quantity - 1,
           };
-        } else {
-          return item;
         }
+
+        return item;
       });
 
       calcTotalSum(state);

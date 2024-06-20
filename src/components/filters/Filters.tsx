@@ -11,23 +11,21 @@ function Filters() {
     <div className={style.filters}>
       <div className={style.brands}>
         <h2>Бренды</h2>
-        {brands.map((item, index) => (
-          <label key={index} htmlFor={String(index)}>
-            <>
-              <input
-                type="checkbox"
-                id={String(index)}
-                value={item}
-                className={style.realCheckbox}
-                onChange={(event) => {
-                  dispatch(setCurrentBrand(event.target.value));
+        {brands.map((item) => (
+          <label key={item.id} htmlFor={item.id}>
+            <input
+              type="checkbox"
+              id={item.id}
+              value={item.title}
+              className={style.realCheckbox}
+              onChange={(event) => {
+                dispatch(setCurrentBrand(event.target.value));
 
-                  dispatch(sortingByBrands());
-                }}
-              />
-              <span className={style.customCheckbox} />
-              {item}
-            </>
+                dispatch(sortingByBrands());
+              }}
+            />
+            <span className={style.customCheckbox} />
+            {item.title}
           </label>
         ))}
       </div>
